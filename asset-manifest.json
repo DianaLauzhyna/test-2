@@ -1,13 +1,10 @@
 {
   "files": {
-    "main.css": "/DianaLauzhyna/test-2/static/css/main.7acaea2f.css",
-    "main.js": "/DianaLauzhyna/test-2/static/js/main.07d3183d.js",
+    "main.js": "/DianaLauzhyna/test-2/static/js/main.f3e1ad8f.js",
     "index.html": "/DianaLauzhyna/test-2/index.html",
-    "main.7acaea2f.css.map": "/DianaLauzhyna/test-2/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/DianaLauzhyna/test-2/static/js/main.07d3183d.js.map"
+    "main.f3e1ad8f.js.map": "/DianaLauzhyna/test-2/static/js/main.f3e1ad8f.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.f3e1ad8f.js"
   ]
 }
