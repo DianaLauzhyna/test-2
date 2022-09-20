@@ -1,4 +1,5 @@
 import { Component } from "react";
+import PropTypes from 'prop-types';
 
 class Form extends Component {
 
@@ -33,6 +34,11 @@ class Form extends Component {
             </form>
         )
     }
+};
+
+
+Form.propTypes = {
+    onChange: PropTypes.func
 };
 
 export default Form;
