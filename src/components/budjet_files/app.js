@@ -1,24 +1,23 @@
-
 import { Component } from 'react';
-import Balance from '../balance/balance.js'
+import Balance from '../balance/balance.js';
+import Transactions from '../transactions/transactions.js';
+import Form from '../Form/form.js';
 
 let id = 0;
 
 class Appp extends Component {
-    constructor ()
-        {
-            super();
-            this.state ={
-                balance: 0,
-                transactions: []
-            }
-            this.onIncrease = this.onIncrease.bind(this);
-            //this.onDecrease = this.onDecrease.bind(this);
-            console.log('constructor');
-        }
+  constructor() {
+    super();
+    this.state = {
+      balance: 0,
+      transactions: [],
+    };
+    this.onChange = this.onChange.bind(this);
+    //this.onDecrease = this.onDecrease.bind(this);
+    console.log('constructor');
+  }
 
-
-/* componentDidMount (){
+  /* componentDidMount (){
     console.log('componentDidMount')
 }
 
@@ -33,7 +32,7 @@ shouldComponentUpdate(nextProps, nextState) {
 return nextState.balance<5;
 } */
 
-/* componentDidMount(){
+  /* componentDidMount(){
     const balance = JSON.parse(window.localStorage.getItem('balance'));
     this.setState({balance})
 }
@@ -42,7 +41,7 @@ componentWillUnmount(){
     window.localStorage.setItem('balance', JSON.stringify(this.state.balance))
     debugger
 } */
-    onIncrease() {
+  /*     onIncrease() {
         this.setState((state)=>({ 
             balance: state.balance +1,
             transactions: [{
@@ -60,28 +59,26 @@ componentWillUnmount(){
                 value: -1,
             id:++id}, ...state.transactions]
         }))
-    }
-
-    render () {
-        console.log('render')
-     return (
-      <div>
-       <Balance balance={this.state.balance}/>
-       <button onClick={this.onIncrease}> Add money</button>
-       <button onClick={this.onDecrease}> Remove money</button>
-       <hr/> 
-       {
-this.state.transactions.map((transaction) =>(
-    <div key={transaction.id}>
-        Label: {transaction.label}
-        <p>Value: {transaction.value}</p>
-        <br/>
-    </div>
-))        
-       }
-      </div>
-     ) 
-    } 
+    } */
+  onChange = value => {
+    this.setState(state => ({
+      balance: state.balance + Number(value),
+      transactions: [{ value, label: 'change' }, ...state.transactions],
+    }));
   };
+  render() {
+    console.log('render');
+    return (
+      <div>
+        <Balance balance={this.state.balance} />
+        <Form onChange={this.onChange} />
+        {/*        <button onClick={this.onIncrease}> Add money</button>
+       <button onClick={this.onDecrease}> Remove money</button> */}
+        <hr />
+        <Transactions transactions={this.state.transactions} />
+      </div>
+    );
+  }
+}
 
-  export default Appp;
+export default Appp;
